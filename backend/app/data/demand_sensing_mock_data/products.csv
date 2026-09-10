@@ -1,0 +1,7 @@
+product_id,name,category,unit_cost,sell_price,shelf_life_days,active
+P001,500ml Bottled Water,Beverages,4.2,8.0,30,True
+P002,2L Soft Drink,Beverages,10.5,18.0,60,True
+P003,White Bread 700g,Bakery,9.0,16.0,5,True
+P004,Milk 1L,Dairy,11.0,19.0,14,True
+P005,Potato Chips 120g,Snacks,7.5,14.0,90,True
+P006,Maize Meal 2.5kg,Staples,22.0,35.0,180,True

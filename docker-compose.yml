@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: demand-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID:-smmes-7adc8}
+      - FIREBASE_CREDENTIALS_PATH=${FIREBASE_CREDENTIALS_PATH:-/app/firebase-credentials.json}
+      - DATA_DIR=${DATA_DIR:-/app/data/csv}
+      - MIN_OBSERVATIONS=${MIN_OBSERVATIONS:-7}
+      - WAPE_ALERT_THRESHOLD=${WAPE_ALERT_THRESHOLD:-0.35}
+      - BIAS_ALERT_THRESHOLD=${BIAS_ALERT_THRESHOLD:-0.20}
+    volumes:
+      # Mount your Firebase service account key
+      - ${FIREBASE_CREDENTIALS_PATH:-./firebase-credentials.json}:/app/firebase-credentials.json:ro
+      # Mount CSV data directory
+      - ${DATA_DIR:-./data/csv}:/app/data/csv:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: demand-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  default:
+    name: demand-sensing-net

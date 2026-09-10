@@ -1,0 +1,8 @@
+event_id,date,day_name,event_name,location,event_type,expected_impact
+E001,2026-03-21,Saturday,Community Sports Day,Soshanguve,SPORT,0.18
+E002,2026-04-03,Friday,Easter Weekend,Soshanguve,HOLIDAY,0.25
+E003,2026-05-01,Friday,Workers Day,Soshanguve,HOLIDAY,0.22
+E004,2026-06-16,Tuesday,Youth Day,Soshanguve,HOLIDAY,0.2
+E005,2026-07-18,Saturday,Community Market,Soshanguve,MARKET,0.28
+E006,2026-08-09,Sunday,National Womens Day,Soshanguve,HOLIDAY,0.18
+E007,2026-08-22,Saturday,Local Football Tournament,Soshanguve,SPORT,0.3
