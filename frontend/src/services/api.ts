@@ -8,7 +8,7 @@ import type {
   SeasonalityProfile,
 } from '../types/demand';
 
-const BASE = import.meta.env.VITE_API_URL || '/api';
+const BASE = import.meta.env.VITE_API_URL ||  'https://demandsensingagent.onrender.com';
 const api = axios.create({ baseURL: BASE, timeout: 30000 });
 
 export const demandApi = {
